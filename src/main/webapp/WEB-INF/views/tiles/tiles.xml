@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <!-- Admin Template -->
+   <definition name="admin" template="/WEB-INF/views/layouts/_layout.jsp">
+       <put-attribute name="title" value="" />
+       <put-attribute name="header" value="/WEB-INF/views/templates/header.jsp" />
+       <put-attribute name="menu" value="/WEB-INF/views/templates/menu.jsp" />
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp" />  
+   </definition>  
+   
+   <!-- Login Template -->
+   <definition name="loginTmp" template="/WEB-INF/views/layouts/_layoutLogin.jsp">
+   		<put-attribute name="title" value="Login"></put-attribute>
+   		<put-attribute name="formlogin" value=""></put-attribute>
+   </definition>
+   
+   <!-- Home Page -->
+   <definition name="home" extends="admin">  
+       <put-attribute name="title" value="Quản trị nội dung" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />  
+   </definition> 
+   
+   <!-- Account -->
+   <definition name="account" extends="admin">  
+       <put-attribute name="title" value="Quản lý tài khoản" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/account.jsp" />  
+   </definition>
+ 
+   <!-- Login -->
+   <definition name="login" extends="loginTmp">  
+       <put-attribute name="title" value="Đăng nhập" />  
+       <put-attribute name="formlogin" value="/WEB-INF/views/pages/login.jsp" />  
+   </definition>
+
+</tiles-definitions>
