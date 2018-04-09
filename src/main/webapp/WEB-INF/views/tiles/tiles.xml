@@ -27,6 +27,8 @@
        <put-attribute name="title" value="Quản lý tài khoản" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/account.jsp" />  
    </definition>
+   
+   <definition name="pagging_account" template="/WEB-INF/views/pages/pagging_account.jsp" />
  
    <!-- Login -->
    <definition name="login" extends="loginTmp">  

@@ -15,18 +15,7 @@
 					4 Tasks to complete</li>
 
 				<li class="dropdown-content">
-					<ul class="dropdown-menu dropdown-navbar">
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left">Software Update</span> <span
-										class="pull-right">65%</span>
-								</div>
-
-								<div class="progress progress-mini">
-									<div style="width: 65%" class="progress-bar"></div>
-								</div>
-						</a></li>
-					</ul>
+					
 				</li>
 
 				<li class="dropdown-footer"><a href="#"> See tasks with
@@ -45,19 +34,6 @@
 				<li class="dropdown-header"><i
 					class="ace-icon fa fa-exclamation-triangle"></i> 8 Notifications</li>
 
-				<li class="dropdown-content">
-					<ul class="dropdown-menu dropdown-navbar navbar-pink">
-						<li><a href="#">
-								<div class="clearfix">
-									<span class="pull-left"> <i
-										class="btn btn-xs no-hover btn-pink fa fa-comment"></i> New
-										Comments
-									</span> <span class="pull-right badge badge-info">+12</span>
-								</div>
-						</a></li>
-					</ul>
-				</li>
-
 				<li class="dropdown-footer"><a href="#"> See all
 						notifications <i class="ace-icon fa fa-arrow-right"></i>
 				</a></li>
@@ -75,18 +51,7 @@
 					class="ace-icon fa fa-envelope-o"></i> 5 Messages</li>
 
 				<li class="dropdown-content">
-					<ul class="dropdown-menu dropdown-navbar">
-						<li><a href="#" class="clearfix"> <img
-								src="assets/images/avatars/avatar.png" class="msg-photo"
-								alt="Alex's Avatar" /> <span class="msg-body"> <span
-									class="msg-title"> <span class="blue">Alex:</span> Ciao
-										sociis natoque penatibus et auctor ...
-								</span> <span class="msg-time"> <i
-										class="ace-icon fa fa-clock-o"></i> <span>a moment ago</span>
-								</span>
-							</span>
-						</a></li>
-					</ul>
+					
 				</li>
 
 				<li class="dropdown-footer"><a href="inbox.html"> See all

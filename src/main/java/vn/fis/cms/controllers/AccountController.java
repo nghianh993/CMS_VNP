@@ -1,13 +1,11 @@
 package vn.fis.cms.controllers;
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,26 +15,21 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import vn.fis.cms.domain.User;
 import vn.fis.cms.services.AccountService;
-import vn.fis.cms.model.AjaxResult;
+import vn.fis.cms.model.AccountModel;
 
 @Controller
 public class AccountController {
 
 	@Autowired
-	private MessageSource messageSource;
-	
-	@Autowired
 	AccountService accountService;
 	
 	@RequestMapping(value = {"/admin/account"}, method = RequestMethod.GET)
 	public String Account(ModelMap model) {
-		Page<User> pgUser = accountService.GetListUser(0, 2);
-		List<User> lstUser = pgUser.getContent();
+		Page<AccountModel> pgUser = accountService.GetListUser(0, 2);
+		List<AccountModel> lstUser = pgUser.getContent();
 		model.addAttribute("lstUser", lstUser);
 		model.addAttribute("total", pgUser.getTotalElements());
 		model.addAttribute("totalPage", pgUser.getTotalPages());
@@ -46,26 +39,15 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = { "api/admin/account/loaddata" }, method = RequestMethod.POST)
-	public @ResponseBody AjaxResult GetListLocation(int pageIndex, int pageSize) {
-		AjaxResult result = new AjaxResult();
-		try {
-			Page<User> pgUser = accountService.GetListUser((pageIndex - 1), pageSize);
-			List<User> lstUser = pgUser.getContent();
-			if (lstUser == null) {
-				result.setResult(false);
-				result.setMessage(messageSource.getMessage("E001", null, Locale.getDefault()));
-			} else {
-				result.setResult(true);
-				result.setMessage(messageSource.getMessage("S001", null, Locale.getDefault()));
-				result.setResultData(lstUser);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			result.setResult(false);
-			result.setMessage(messageSource.getMessage("E002", null, Locale.getDefault()));
-			return result;
-		}
-		return result;
+	public ModelAndView GetListLocation(int pageIndex, int pageSize) {
+		Page<AccountModel> pgUser = accountService.GetListUser(pageIndex -1, pageSize);
+		List<AccountModel> lstUser = pgUser.getContent();
+		ModelAndView mav = new ModelAndView("pagging_account");
+	    mav.addObject("lstUser", lstUser);
+	    mav.addObject("total", pgUser.getTotalElements());
+	    mav.addObject("totalPage", pgUser.getTotalPages());
+	    mav.addObject("currentpage", pageIndex -1);
+        return mav;
 	}
 	
 	@RequestMapping(value = "/account/login", method = RequestMethod.GET)

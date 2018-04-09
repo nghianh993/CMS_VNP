@@ -6,7 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import vn.fis.cms.domain.User;
+import vn.fis.cms.model.AccountModel;
 import vn.fis.cms.repositories.AccountRepository;
 import vn.fis.cms.services.AccountService;
 
@@ -22,9 +22,9 @@ public class AccountServicesImpl implements AccountService{
 	}
 
 	@Override
-	public Page<User> GetListUser(int pageIndex, int pageSize) {
+	public Page<AccountModel> GetListUser(int pageIndex, int pageSize) {
 		Pageable pageable = PageRequest.of(pageIndex, pageSize);
-		return accountRepository.findAll(pageable);
+		return accountRepository.findAllAccount(pageable);
 	}
 
 }

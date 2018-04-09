@@ -45,4 +45,23 @@ $(document).ready(function() {
             }
         });
     }
+    
+    function appendData(data){
+    	$.each(data, function(i, item) {
+			var html = '';
+			html += '<tr><td class="center"><label class="pos-rel"><input type="checkbox" data-id="'+item.id+ '" class="ace" /> <span class="lbl"></span>';
+			html += '</label></td><td>'+ item.email+ '</td><td>'+item.fullname+'</td><td>'+item.address +'</td><td>' +item.phone +'</td>';
+			html += '<td>'; 
+			if(item.islock){
+				html += '<span class="label label-sm label-danger">Khóa</span>';
+			}
+			if(!item.islock){
+				html += '<span class="label label-sm label-success">Không khóa</span>';
+			}
+			html += '</td><td>' + item.datecreate +'</td><td style="text-align: center;"><div class="hidden-sm hidden-xs action-buttons">';
+			html += '<a class="blue" href="#"><i class="ace-icon fa fa-search-plus bigger-130"></i></a><a class="green" href="#">';
+			html += '<i class="ace-icon fa fa-pencil bigger-130"></i></a><a class="red" href="#"><i class="ace-icon fa fa-trash-o bigger-130"></i></a>';
+			html += '</div></td></tr>';
+    	});
+    };
 });

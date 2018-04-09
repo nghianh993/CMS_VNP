@@ -67,7 +67,7 @@ var fis_vnp_js = (function () {
         $.post(linkApi, data, function (resp) {
             if (resp != null) {
                 $("#" + tagAppend + " tbody").html("");
-                $("#" + tagAppend + " tbody").html(resp.Content);
+                $("#" + tagAppend + " tbody").html(resp);
                 if (typeof $(".page-home").val() != "undefined") {
                     $(".page-home").show();
                 } else {
