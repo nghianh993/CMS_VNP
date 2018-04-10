@@ -74,8 +74,6 @@ var fis_vnp_js = (function () {
                     var html = '<div class="row page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
                     $(".pagecus").append(html);
                 }
-                $('#datatable').attr("data-total", resp.TotalPage);
-                $('#datatable').attr("data-page", data.pageIndex);
                 $.LoadingOverlay("hide");
             }
         });
@@ -85,9 +83,7 @@ var fis_vnp_js = (function () {
         $.post(linkApi, data, function (resp) {
             if (resp != null) {
                 $("#" + tagAppend + " tbody").html("");
-                $("#" + tagAppend + " tbody").html(resp.Content);
-                $('#datatable').attr("data-total", resp.TotalPage);
-                $('#datatable').attr("data-page", data.pageIndex);
+                $("#" + tagAppend + " tbody").html(resp);
                 if (resp.TotalPage > 1) {
                     if (typeof $(".page-home").val() != "undefined") {
                         $(".page-home").show();
@@ -120,15 +116,13 @@ var fis_vnp_js = (function () {
                     $.post(linkApi, data, function (resp) {
                         if (resp != null) {
                             $("#" + tagAppend + " tbody").html("");
-                            $("#" + tagAppend + " tbody").html(resp.Content);
+                            $("#" + tagAppend + " tbody").html(resp);
                             if (typeof $(".page-home").val() != "undefined") {
                                 $(".page-home").show();
                             } else {
                                 var html = '<div class="row page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
                                 $(".pagecus").append(html);
                             }
-                            $('#datatable').attr("data-total", resp.TotalPage);
-                            $('#datatable').attr("data-page", page);
                             $.LoadingOverlay("hide");
                         }
                     });

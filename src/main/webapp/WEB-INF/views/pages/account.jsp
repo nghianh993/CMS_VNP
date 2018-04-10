@@ -122,7 +122,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<input type="hidden" id="datatable" data-total="${totalPage }" data-totalrecord="${total }" data-page="${currentpage }" />
+			
 		</div>
 		<div class="pagecus">
 		<c:if test="${totalPage > 1}">

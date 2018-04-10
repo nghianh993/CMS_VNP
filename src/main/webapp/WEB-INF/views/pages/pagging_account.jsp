@@ -38,3 +38,4 @@
 		</td>
 	</tr>
 </c:forEach>
+<input type="hidden" id="datatable" data-total="${totalPage }" data-totalrecord="${total }" data-page="${currentpage }" />

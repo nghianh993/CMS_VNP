@@ -60,7 +60,7 @@ public class DatabaseConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.format_sql", "true");
+		properties.setProperty("hibernate.format_sql", "false");
 		return properties;
 	}
 }

@@ -49,7 +49,43 @@
 			</a> 
 			<b class="arrow"></b>
 		</li>
-
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-gg-circle"></i>
+				<span class="menu-text"> Phân quyền </span>
+		
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+		
+			<b class="arrow"></b>
+		
+			<ul class="submenu nav-hide" style="display: none;">
+				<li class="">
+					<a href="form-elements.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Quản lý quyền
+					</a>
+		
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="form-elements.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Tạo Group
+					</a>
+		
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="form-elements.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Phân quyền
+					</a>
+		
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
 	</ul>
 	<!-- /.nav-list -->
 

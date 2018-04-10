@@ -2,7 +2,10 @@ package vn.fis.cms.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -53,8 +56,11 @@ public class User implements Serializable {
 	private List<Order> orders;
 
 	//bi-directional many-to-one association to UserRoleMapping
-	@OneToMany(mappedBy="user")
-	private List<UserRoleMapping> userRoleMappings;
+	@ManyToMany
+    @JoinTable(name = "USER_ROLE_MAPPING", 
+      joinColumns =  @JoinColumn(name = "USERID", referencedColumnName = "ID"),
+      inverseJoinColumns =  @JoinColumn(name = "ROLEID", referencedColumnName = "ID"))
+	private Collection<Role> roles = new HashSet<Role>();
 
 	public User() {
 	}
@@ -205,26 +211,11 @@ public class User implements Serializable {
 		return order;
 	}
 
-	public List<UserRoleMapping> getUserRoleMappings() {
-		return this.userRoleMappings;
+	public Collection<Role> getRoles() {
+		return roles;
 	}
 
-	public void setUserRoleMappings(List<UserRoleMapping> userRoleMappings) {
-		this.userRoleMappings = userRoleMappings;
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
-
-	public UserRoleMapping addUserRoleMapping(UserRoleMapping userRoleMapping) {
-		getUserRoleMappings().add(userRoleMapping);
-		userRoleMapping.setUser(this);
-
-		return userRoleMapping;
-	}
-
-	public UserRoleMapping removeUserRoleMapping(UserRoleMapping userRoleMapping) {
-		getUserRoleMappings().remove(userRoleMapping);
-		userRoleMapping.setUser(null);
-
-		return userRoleMapping;
-	}
-
 }

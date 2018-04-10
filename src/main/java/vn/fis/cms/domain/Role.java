@@ -2,8 +2,9 @@ package vn.fis.cms.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * The persistent class for the "ROLES" database table.
@@ -22,13 +23,12 @@ public class Role implements Serializable {
 
 	private String rolename;
 
-	//bi-directional many-to-one association to RolesPermission
-	@OneToMany(mappedBy="role")
-	private List<RolesPermission> rolesPermissions;
-
-	//bi-directional many-to-one association to UserRoleMapping
-	@OneToMany(mappedBy="role")
-	private List<UserRoleMapping> userRoleMappings;
+	@ManyToMany
+	@JoinTable(name = "ROLES_PERMISSION", 
+ 		joinColumns = @JoinColumn(name = "ROLEID", referencedColumnName = "ID"), 
+ 		inverseJoinColumns = @JoinColumn(name = "PERMISSIONID", referencedColumnName = "ID"))
+	
+ 	private Collection<Permission> permissions = new HashSet<Permission>();
 
 	public Role() {
 	}
@@ -48,49 +48,13 @@ public class Role implements Serializable {
 	public void setRolename(String rolename) {
 		this.rolename = rolename;
 	}
-
-	public List<RolesPermission> getRolesPermissions() {
-		return this.rolesPermissions;
+	
+	public Collection<Permission> getPermissions() {
+		return permissions;
 	}
 
-	public void setRolesPermissions(List<RolesPermission> rolesPermissions) {
-		this.rolesPermissions = rolesPermissions;
-	}
-
-	public RolesPermission addRolesPermission(RolesPermission rolesPermission) {
-		getRolesPermissions().add(rolesPermission);
-		rolesPermission.setRole(this);
-
-		return rolesPermission;
-	}
-
-	public RolesPermission removeRolesPermission(RolesPermission rolesPermission) {
-		getRolesPermissions().remove(rolesPermission);
-		rolesPermission.setRole(null);
-
-		return rolesPermission;
-	}
-
-	public List<UserRoleMapping> getUserRoleMappings() {
-		return this.userRoleMappings;
-	}
-
-	public void setUserRoleMappings(List<UserRoleMapping> userRoleMappings) {
-		this.userRoleMappings = userRoleMappings;
-	}
-
-	public UserRoleMapping addUserRoleMapping(UserRoleMapping userRoleMapping) {
-		getUserRoleMappings().add(userRoleMapping);
-		userRoleMapping.setRole(this);
-
-		return userRoleMapping;
-	}
-
-	public UserRoleMapping removeUserRoleMapping(UserRoleMapping userRoleMapping) {
-		getUserRoleMappings().remove(userRoleMapping);
-		userRoleMapping.setRole(null);
-
-		return userRoleMapping;
+	public void setPermissions(Collection<Permission> permissions) {
+		this.permissions = permissions;
 	}
 
 }

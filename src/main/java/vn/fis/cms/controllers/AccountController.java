@@ -46,7 +46,7 @@ public class AccountController {
 	    mav.addObject("lstUser", lstUser);
 	    mav.addObject("total", pgUser.getTotalElements());
 	    mav.addObject("totalPage", pgUser.getTotalPages());
-	    mav.addObject("currentpage", pageIndex -1);
+	    mav.addObject("currentpage", pageIndex);
         return mav;
 	}
 	

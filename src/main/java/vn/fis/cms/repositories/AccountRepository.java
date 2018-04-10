@@ -11,6 +11,9 @@ import vn.fis.cms.model.AccountModel;
 
 @Repository
 public interface AccountRepository extends JpaRepository<User, Long>{
+	
+	public User findByEmail(String email);
+	
 	@Query("select new vn.fis.cms.model.AccountModel(u.id, u.address, "
 			+ "u.datecreate, u.email, u.fullname, u.iplogin, u.islock, "
 			+ "u.lockresion, u.password, u.phone) from User u")

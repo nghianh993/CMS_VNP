@@ -2,8 +2,6 @@ package vn.fis.cms.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
-
 
 /**
  * The persistent class for the PERMISSION database table.
@@ -25,10 +23,6 @@ public class Permission implements Serializable {
 
 	@Column(name="\"LINK\"")
 	private String link;
-
-	//bi-directional many-to-one association to RolesPermission
-	@OneToMany(mappedBy="permission")
-	private List<RolesPermission> rolesPermissions;
 
 	public Permission() {
 	}
@@ -64,27 +58,4 @@ public class Permission implements Serializable {
 	public void setLink(String link) {
 		this.link = link;
 	}
-
-	public List<RolesPermission> getRolesPermissions() {
-		return this.rolesPermissions;
-	}
-
-	public void setRolesPermissions(List<RolesPermission> rolesPermissions) {
-		this.rolesPermissions = rolesPermissions;
-	}
-
-	public RolesPermission addRolesPermission(RolesPermission rolesPermission) {
-		getRolesPermissions().add(rolesPermission);
-		rolesPermission.setPermission(this);
-
-		return rolesPermission;
-	}
-
-	public RolesPermission removeRolesPermission(RolesPermission rolesPermission) {
-		getRolesPermissions().remove(rolesPermission);
-		rolesPermission.setPermission(null);
-
-		return rolesPermission;
-	}
-
 }

@@ -11,36 +11,28 @@
 
 			<div class="space-6"></div>
 			<c:if test="${not empty error}">
-				<div class="alert alert-block alert-danger message">
-					<button type="button" class="close" data-dismiss="alert">
-						<i class="ace-icon fa fa-times"></i>
-					</button>
+				<div class="alert alert-danger message">
 					<i class="ace-icon fa fa-exclamation-circle red"></i> ${error}
 				</div>
 			</c:if>
 			<c:if test="${not empty msg}">
-				
-				<div class="alert alert-block alert-success message">
-					<button type="button" class="close" data-dismiss="alert">
-						<i class="ace-icon fa fa-times"></i>
-					</button>
+				<div class="alert alert-success message">
 					<i class="ace-icon fa fa-check green"></i> ${msg}
 				</div>
-				
 			</c:if>
 			<form action="<c:url value='login' />" method="post">
 				<fieldset>
 					<label class="block clearfix">
 						<span class="block input-icon input-icon-right">
-						<input type="text" name="username" class="form-control" placeholder="Tên đăng nhập">
-							<i class="ace-icon fa fa-user"></i>
+						<input type="text" name="email" class="form-control" placeholder="Email đăng nhập">
+							<i class="ace-icon fa fa-envelope-o"></i>
 						</span>
 					</label>
 
 					<label class="block clearfix">
 						<span class="block input-icon input-icon-right">
 							<input type="password" name="password" class="form-control" placeholder="Mật khẩu">
-							<i class="ace-icon fa fa-lock"></i>
+							<i class="ace-icon fa fa-key"></i>
 						</span>
 					</label>
 
