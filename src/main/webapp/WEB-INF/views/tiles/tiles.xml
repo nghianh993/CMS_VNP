@@ -29,6 +29,7 @@
    </definition>
    
    <definition name="pagging_account" template="/WEB-INF/views/pages/pagging_account.jsp" />
+   <definition name="notfound" template="/WEB-INF/views/pages/notfound.jsp" />
  
    <!-- Login -->
    <definition name="login" extends="loginTmp">  

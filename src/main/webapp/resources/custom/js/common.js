@@ -14,9 +14,9 @@ var fis_vnp_js = (function () {
         var h = today.getHours();
         var m = today.getMinutes();
         var s = today.getSeconds();
-        h = fn_xnk_js.xnk_js().checkTime(h);
-        m = fn_xnk_js.xnk_js().checkTime(m);
-        s = fn_xnk_js.xnk_js().checkTime(s);
+        h = fis_vnp_js.fis_vnp().checkTime(h);
+        m = fis_vnp_js.fis_vnp().checkTime(m);
+        s = fis_vnp_js.fis_vnp().checkTime(s);
 
         var clocktime = fn_xnk_js.xnk_js().getday(today.getDay()) + d + mt + y + " - " + h + ":" + m + ":" + s;
         $(".navbar-header .hd-clock").html(clocktime);
@@ -71,7 +71,7 @@ var fis_vnp_js = (function () {
                 if (typeof $(".page-home").val() != "undefined") {
                     $(".page-home").show();
                 } else {
-                    var html = '<div class="row page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
+                    var html = '<div class="page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
                     $(".pagecus").append(html);
                 }
                 $.LoadingOverlay("hide");
@@ -88,7 +88,7 @@ var fis_vnp_js = (function () {
                     if (typeof $(".page-home").val() != "undefined") {
                         $(".page-home").show();
                     } else {
-                        var html = '<div class="row page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
+                        var html = '<div class="page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
                         $(".pagecus").append(html);
                     }
                     fn_xnk_js.xnk_js().showPaginationAll(resp.TotalPage, linkApi, tagAppend, data);
@@ -120,7 +120,7 @@ var fis_vnp_js = (function () {
                             if (typeof $(".page-home").val() != "undefined") {
                                 $(".page-home").show();
                             } else {
-                                var html = '<div class="row page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
+                                var html = '<div class="page-home lo-paging"><div class="col-xs-12 col-md-4"><div class="dataTables_length"><label>Hiển thị <select class="ddlpage"><option value="30">30</option><option value="50">50</option><option value="100">100</option><option value="150">150</option><option value="200">200</option></select> tin</label></div></div><div class="col-xs-12 col-md-8 lo-paging-0"><div class="dataTables_paginate homepagging "><div class="pagination" id="pagination"></div></div></div></div>';
                                 $(".pagecus").append(html);
                             }
                             $.LoadingOverlay("hide");

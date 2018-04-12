@@ -18,4 +18,5 @@ public interface AccountRepository extends JpaRepository<User, Long>{
 			+ "u.datecreate, u.email, u.fullname, u.iplogin, u.islock, "
 			+ "u.lockresion, u.password, u.phone) from User u")
 	public Page<AccountModel> findAllAccount(Pageable pageable);
+	
 }

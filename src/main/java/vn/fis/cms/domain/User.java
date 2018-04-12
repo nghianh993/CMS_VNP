@@ -56,7 +56,7 @@ public class User implements Serializable {
 	private List<Order> orders;
 
 	//bi-directional many-to-one association to UserRoleMapping
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "USER_ROLE_MAPPING", 
       joinColumns =  @JoinColumn(name = "USERID", referencedColumnName = "ID"),
       inverseJoinColumns =  @JoinColumn(name = "ROLEID", referencedColumnName = "ID"))

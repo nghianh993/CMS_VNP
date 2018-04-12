@@ -11,7 +11,7 @@ import java.util.HashSet;
  * 
  */
 @Entity
-@Table(name="\"ROLES\"")
+@Table(name="ROLES")
 @NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class Role implements Serializable {
 
 	private String rolename;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name = "ROLES_PERMISSION", 
  		joinColumns = @JoinColumn(name = "ROLEID", referencedColumnName = "ID"), 
  		inverseJoinColumns = @JoinColumn(name = "PERMISSIONID", referencedColumnName = "ID"))

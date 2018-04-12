@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import vn.fis.cms.services.AccountService;
+import vn.fis.cms.services.IAccountService;
 import vn.fis.cms.model.AccountModel;
 
 @Controller
 public class AccountController {
 
 	@Autowired
-	AccountService accountService;
+	IAccountService accountService;
 	
 	@RequestMapping(value = {"/admin/account"}, method = RequestMethod.GET)
 	public String Account(ModelMap model) {

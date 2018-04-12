@@ -119,6 +119,7 @@
 							</div>
 						</td>
 					</tr>
+					<input type="hidden" id="datatable" data-total="${totalPage }" data-totalrecord="${total }" data-page="${currentpage }" />
 					</c:forEach>
 				</tbody>
 			</table>
@@ -126,7 +127,7 @@
 		</div>
 		<div class="pagecus">
 		<c:if test="${totalPage > 1}">
-            <div class="row ht-mor-pagination page-home lo-paging">
+            <div class="ht-mor-pagination page-home lo-paging">
                 <div class="col-xs-12 col-md-4 dv_choose_page">
                     <label>
                         Hiển thị

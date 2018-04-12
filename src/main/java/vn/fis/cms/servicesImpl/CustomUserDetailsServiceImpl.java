@@ -1,4 +1,4 @@
-package vn.fis.cms.services;
+package vn.fis.cms.servicesImpl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,10 +58,12 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService  {
 	
 	private final List<GrantedAuthority> getGrantedAuthorities(final List<String> permission) {
         final List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        List<String> lstpermission = new ArrayList<String>();
         for (final String privilege : permission) {
-        	System.out.println(privilege);
+        	lstpermission.add(privilege);
             authorities.add(new SimpleGrantedAuthority(privilege));
         }
+        System.out.println("Danh sach permission user: " + lstpermission);
         return authorities;
     }
 	
