@@ -15,7 +15,6 @@ import vn.fis.cms.services.CustomAuthenticationProvider;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
 	private AuthenticationProvider customAuthenticationProvider;
 
