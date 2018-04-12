@@ -24,20 +24,22 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService  {
 	
 	@Autowired
 	AccountRepository accountRepository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		try {
-             User user = accountRepository.findByEmail(email);
+		    User user = accountRepository.findByEmail(email);
             if (user == null) {
-                throw new UsernameNotFoundException("Không đúng tên đăng nhập hoặc mật khẩu!!!");
-            }
+                throw new UsernameNotFoundException("Không đúng Email.");
+        }
 
             return new org.springframework.security.core.userdetails.User(email, user.getPassword(), !user.getIslock(), true, true, true, getAuthorities(user.getRoles()));
         } catch (final Exception e) {
             throw new RuntimeException(e);
         }
 	}
+
+
 
 	private final Collection<? extends GrantedAuthority> getAuthorities(final Collection<Role> roles) {
         return getGrantedAuthorities(getPrivileges(roles));		
