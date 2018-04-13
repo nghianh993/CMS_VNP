@@ -11,13 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 public class CustomerAccessDecisionManager implements AccessDecisionManager {
-
-/*	IAccountService accountService;
-	
-	public CustomerAccessDecisionManager(IAccountService accountService) {
-        super();
-        this.accountService = accountService;
-    }*/
 	
 	@Override
 	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes)

@@ -29,13 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		//auth.inMemoryAuthentication().withUser("admin@fis.vn").password("123456").roles("ADMIN");
-		auth.userDetailsService(userDetailsService);//passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailsService);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/account/login").anonymous()
 		.antMatchers("/static/**").permitAll()
+		.antMatchers("/notfound").anonymous()
 		.anyRequest().authenticated().withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
             public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
                 FilterInvocationSecurityMetadataSource newSource = new CustomerSecurityMetadataSource(actionService);
@@ -47,8 +48,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         })
 		.and().formLogin().loginPage("/account/login")
 		.defaultSuccessUrl("/admin/home").usernameParameter("email").passwordParameter("password")
-		.failureUrl("/account/login?error").and().logout().logoutSuccessUrl("/account/login?logout").and()
-		.exceptionHandling().accessDeniedPage("/notfound").and().csrf().ignoringAntMatchers("/api/**");
+		.failureUrl("/account/login?error").and().logout().logoutSuccessUrl("/account/login?logout")
+		.and().exceptionHandling().accessDeniedPage("/notfound")
+		.and().csrf().ignoringAntMatchers("/api/**");
 	}
 
 	/*@Bean

@@ -71,7 +71,7 @@
 				<li class="">
 					<a href="form-elements.html">
 						<i class="menu-icon fa fa-caret-right"></i>
-						Tạo Group
+						Quản lý nhóm quyền
 					</a>
 		
 					<b class="arrow"></b>
@@ -79,7 +79,7 @@
 				<li class="">
 					<a href="form-elements.html">
 						<i class="menu-icon fa fa-caret-right"></i>
-						Phân quyền
+						Phân quyền chức năng
 					</a>
 		
 					<b class="arrow"></b>
