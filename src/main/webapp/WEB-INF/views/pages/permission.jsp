@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<script src="<c:url value="/static/custom/js/account/account.js"/>"></script>
+<script src="<c:url value="/static/custom/js/account/permission.js"/>"></script>
 
 <div class="page-content">
     <div class="page-header">
@@ -72,28 +72,33 @@
                             <input type="checkbox" class="ace" /> <span class="lbl"></span>
                         </label>
                     </th>
-                    <th>Email</th>
-                    <th>Họ Tên</th>
+                    <th>Code</th>
+                    <th>Quyền</th>
+                    <th>Khóa</th>
                     <th style="width: 150px"></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <c:forEach items="${lstUser}" var="user">
+                <c:forEach items="${lstPermission}" var="permission">
                     <tr>
                         <td class="center">
                             <label class="pos-rel">
-                                <input type="checkbox" data-id="${user.id}" class="ace" /> <span class="lbl"></span>
+                                <input type="checkbox" data-id="${permission.id}" class="ace" /> <span class="lbl"></span>
                             </label>
                         </td>
-                        <td>${user.address }</td>
-                        <td>${user.phone }</td>
+                        <td>${permission.code}</td>
+                        <td>${permission.description}</td>
+                        <td>
+                            <c:if test="${permission.islock}">
+                                <span class="label label-sm label-danger">Khóa</span>
+                            </c:if>
+                            <c:if test="${!permission.islock}">
+                                <span class="label label-sm label-success">Không khóa</span>
+                            </c:if>
+                        </td>
                         <td style="text-align: center;">
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <a class="blue" href="#">
-                                    <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                </a>
-
                                 <a class="green" href="#">
                                     <i class="ace-icon fa fa-pencil bigger-130"></i>
                                 </a>
@@ -144,44 +149,29 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><i class="fa fa-check-square-o"></i> Thêm mới tài khoản</h4>
+                    <h4 class="modal-title"><i class="fa fa-check-square-o"></i> Thêm mới quyền</h4>
                 </div>
                 <form class="form-horizontal" id="frmForm">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label  class="col-sm-3 control-label">Email</label>
+                            <label  class="col-sm-3 control-label">Code</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="txtemail" placeholder="email@gmail.com"/>
+                                <input type="text" class="form-control" id="txtcode"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-3 control-label">Mật khẩu</label>
+                            <label  class="col-sm-3 control-label">Quyền</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="txtpassword" name="txtpassword" placeholder=""/>
+                                <input type="text" class="form-control" id="txtdescription"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-3 control-label">Nhập lại mật khẩu</label>
+                            <label  class="col-sm-3 control-label">Khóa</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="txtrepassword" name="txtrepassword" placeholder=""/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label  class="col-sm-3 control-label">Ngày sinh</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="txtbirthday" name="txtbirthday" placeholder="dd/MM/yyyy"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label  class="col-sm-3 control-label">Số điện thoại</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="txtphone" name="txtphone" placeholder="0901020304"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label  class="col-sm-3 control-label">Địa chỉ</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="txtaddress" name="txtaddress" placeholder=""/>
+                                <label>
+                                    <input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox">
+                                    <span class="lbl"></span>
+                                </label>
                             </div>
                         </div>
                     </div>

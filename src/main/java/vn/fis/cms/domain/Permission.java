@@ -21,8 +21,7 @@ public class Permission implements Serializable {
 
 	private String description;
 
-	@Column(name="\"LINK\"")
-	private String link;
+	private boolean islock;
 
 	public Permission() {
 	}
@@ -51,11 +50,11 @@ public class Permission implements Serializable {
 		this.description = description;
 	}
 
-	public String getLink() {
-		return this.link;
+	public boolean isIslock() {
+		return islock;
 	}
 
-	public void setLink(String link) {
-		this.link = link;
+	public void setIslock(boolean islock) {
+		this.islock = islock;
 	}
 }
