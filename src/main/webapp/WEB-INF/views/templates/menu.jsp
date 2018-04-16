@@ -35,39 +35,38 @@
 
 	<ul class="nav nav-list">
 		<li <c:if test="${active == 'home'}">class="active"</c:if>>
-			<a href="/cms/admin/home"> 
+			<a href="/admin/home">
 				<i class="menu-icon fa fa-tachometer"></i> 
 				<span class="menu-text">Màn hình chính</span>
 			</a> 
 			<b class="arrow"></b>
 		</li>
-		
+
 		<li <c:if test="${active == 'user'}">class="active"</c:if>>
-			<a href="/cms/admin/account"> 
-				<i class="menu-icon fa fa-users"></i> 
+			<a href="/admin/account">
+				<i class="menu-icon fa fa-users"></i>
 				<span class="menu-text">Quản lý tài khoản</span>
-			</a> 
+			</a>
 			<b class="arrow"></b>
 		</li>
 		<li class="">
 			<a href="#" class="dropdown-toggle">
 				<i class="menu-icon fa fa-gg-circle"></i>
 				<span class="menu-text"> Phân quyền </span>
-		
+
 				<b class="arrow fa fa-angle-down"></b>
 			</a>
-		
+
 			<b class="arrow"></b>
 		
 			<ul class="submenu nav-hide" style="display: none;">
-				<li class="">
-					<a href="form-elements.html">
-						<i class="menu-icon fa fa-caret-right"></i>
-						Quản lý quyền
-					</a>
-		
-					<b class="arrow"></b>
-				</li>
+                <li <c:if test="${active == 'permission'}">class="active"</c:if>>
+                    <a href="/admin/permission">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Quản lý quyền
+                    </a>
+                    <b class="arrow"></b>
+                </li>
 				<li class="">
 					<a href="form-elements.html">
 						<i class="menu-icon fa fa-caret-right"></i>

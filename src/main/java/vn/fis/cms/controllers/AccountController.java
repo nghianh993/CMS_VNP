@@ -73,4 +73,16 @@ public class AccountController {
 	    }
 	    return "redirect:/account/login?logout";
 	}
+
+	@RequestMapping(value = {"/admin/permission"}, method = RequestMethod.GET)
+	public String Permissions(ModelMap model) {
+        Page<AccountModel> pgUser = accountService.GetListUser(0, 2);
+        List<AccountModel> lstUser = pgUser.getContent();
+        model.addAttribute("lstUser", lstUser);
+        model.addAttribute("total", pgUser.getTotalElements());
+        model.addAttribute("totalPage", pgUser.getTotalPages());
+        model.addAttribute("currentpage", 1);
+        model.addAttribute("active", "permission");
+        return "permission";
+    }
 }
