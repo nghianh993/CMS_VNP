@@ -2,21 +2,21 @@ package vn.fis.cms.model;
 
 public class PermissionModel {
     private boolean  islock;
-    private long id;
+    private int id;
     private String code, description;
 
-    public PermissionModel(long id, String code, String description, boolean islock) {
+    public PermissionModel(int id, String code, String description, boolean islock) {
         this.id = id;
         this.code = code;
         this.description = description;
         this.islock = islock;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

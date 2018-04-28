@@ -15,7 +15,7 @@ public class Permission implements Serializable {
 	@Id
 	@SequenceGenerator(name="PERMISSION_SEQ", sequenceName="PERMISSION_SEQ")
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="PERMISSION_SEQ")
-	private long id;
+	private int id;
 
 	private String code;
 
@@ -26,11 +26,11 @@ public class Permission implements Serializable {
 	public Permission() {
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<script src="<c:url value="/static/custom/js/account/permission.js"/>"></script>
+<script src="<c:url value="/static/custom/js/permission/permission.js"/>"></script>
 
 <div class="page-content">
     <div class="page-header">
         <h1>
             Trang chủ <small> <i
-                class="ace-icon fa fa-angle-double-right"></i> Quản lý tài khoản
+                class="ace-icon fa fa-angle-double-right"></i> Quản lý quyền
         </small>
         </h1>
     </div>
@@ -32,7 +32,7 @@
             <div class="space"></div>
             <div class="hd-fuc">
                 <div class="col-md-9 col-xs-12 btn-area-action">
-                    <button class="btn btn-sm btn-primary btn-blue btnsave" data-toggle="modal" data-target="#userModal">
+                    <button class="btn btn-sm btn-primary btn-blue btnsave" data-toggle="modal" data-target="#permissionModal">
                         <i class="fa fa-check-square bigger-125"></i>
                         Thêm mới
                     </button>
@@ -99,11 +99,11 @@
                         </td>
                         <td style="text-align: center;">
                             <div class="hidden-sm hidden-xs action-buttons">
-                                <a class="green" href="#">
+                                <a class="green btnedit" href="#" data-id="${permission.id}" data-toggle="modal" data-target="#permissionModal">
                                     <i class="ace-icon fa fa-pencil bigger-130"></i>
                                 </a>
 
-                                <a class="red" href="#">
+                                <a class="red btnremove" href="#" data-id="${permission.id}" data-toggle="modal" data-target="#remove_confirm">
                                     <i class="ace-icon fa fa-trash-o bigger-130"></i>
                                 </a>
                             </div>
@@ -144,7 +144,7 @@
     <!-- /.span -->
 
     <!-- Modal -->
-    <div class="modal fade" id="userModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal fade" id="permissionModal" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -169,7 +169,7 @@
                             <label  class="col-sm-3 control-label">Khóa</label>
                             <div class="col-sm-9">
                                 <label>
-                                    <input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox">
+                                    <input name="switch-field-1" class="ace ace-switch ace-switch-5" type="checkbox" id="chb_lock">
                                     <span class="lbl"></span>
                                 </label>
                             </div>
@@ -179,6 +179,20 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-success"><i class="fa fa-check-square-o"></i> Thêm mới</button>
                     <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bootbox modal fade bootbox-confirm in" id="remove-modal" tabindex="-1" role="dialog" style="padding-right: 17px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body"><button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true" style="margin-top: -10px;">×</button>
+                    <div class="bootbox-body">Are you sure?</div>
+                </div>
+                <div class="modal-footer">
+                    <button data-bb-handler="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button data-bb-handler="confirm" type="button" class="btn btn-primary btn-remove-success">OK</button>
                 </div>
             </div>
         </div>

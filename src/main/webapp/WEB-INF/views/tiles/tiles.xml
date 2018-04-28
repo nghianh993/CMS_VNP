@@ -27,8 +27,8 @@
        <put-attribute name="title" value="Quản lý tài khoản" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/account.jsp" />  
    </definition>
-   
-   <definition name="pagging_account" template="/WEB-INF/views/pages/pagging_account.jsp" />
+
+    <definition name="pagging_account" template="/WEB-INF/views/pages/pagging_account.jsp" />
    <definition name="notfound" template="/WEB-INF/views/pages/notfound.jsp" />
  
    <!-- Login -->
@@ -42,5 +42,7 @@
         <put-attribute name="title" value="Quản lý quyền" />
         <put-attribute name="body" value="/WEB-INF/views/pages/permission.jsp" />
     </definition>
+
+    <definition name="pagging_permission" template="/WEB-INF/views/pages/pagging_permission.jsp" />
 
 </tiles-definitions>
