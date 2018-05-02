@@ -20,7 +20,7 @@
         </td>
         <td style="text-align: center;">
             <div class="hidden-sm hidden-xs action-buttons">
-                <a class="green btnedit" href="#" data-id="${permission.id}" data-toggle="modal" data-target="#permissionModal">
+                <a class="green btnedit" href="#" data-id="${permission.id}">
                     <i class="ace-icon fa fa-pencil bigger-130"></i>
                 </a>
 

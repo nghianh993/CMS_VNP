@@ -78,6 +78,7 @@ $(document).ready(function() {
                 $('#txtdescription').val(data.description);
                 $('#chb_lock').prop('checked', data.islock);
                 $('.btn-success').attr("data-id", id);
+                $('#permissionModal').modal('show');
             }
         );
     });
