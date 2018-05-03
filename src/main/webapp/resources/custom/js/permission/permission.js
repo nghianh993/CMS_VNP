@@ -2,7 +2,6 @@ $(document).ready(function() {
     var totalpage = parseInt($('#datatable').attr("data-total"));
     var totalrecord = parseInt($('#datatable').attr("data-totalrecord"));
     var pageSize = 2;
-
     var active_class = 'active';
     $('#listtable > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
         var th_checked = this.checked;//checkbox inside "TH" table header
@@ -89,6 +88,22 @@ $(document).ready(function() {
         $('.btn-remove-success').attr("data-id", id);
     });
 
+    $('.btn-remove-success').on('click' , function(){
+        var id = parseInt($(this).attr("data-id"));
+
+        $.post('/api/admin/group_permission/remove',
+            {
+                id: id,
+            },
+            function(data, status) {
+                if (data) {
+                    $('#remove-modal').modal('hide');
+                    location.reload();
+                }
+            }
+        );
+    });
+
     $('.btnsave').on('click' , function() {
         $('#txtcode').val("");
         $('#txtdescription').val("");
@@ -111,7 +126,7 @@ $(document).ready(function() {
             },
             function(data, status) {
                 if (data) {
-                    $('#remove-modal').modal('hide');
+                    $('#permissionModal').modal('hide');
                     if (id == 0) {
                         location.reload();
                     } else {

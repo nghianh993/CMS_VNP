@@ -11,6 +11,7 @@ import vn.fis.cms.model.PermissionModel;
 import vn.fis.cms.repositories.PermissionRepository;
 import vn.fis.cms.services.IPermissionService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,6 +25,11 @@ public class PermissionServicesImpl implements IPermissionService {
         Pageable pageable = PageRequest.of(pageIndex, pageSize);
 
         return permissionRepository.findAllPermission(pageable);
+    }
+
+    @Override
+    public List<PermissionAuth> getAllPermissions() {
+        return permissionRepository.findAll();
     }
 
     @Override
@@ -53,5 +59,10 @@ public class PermissionServicesImpl implements IPermissionService {
     @Override
     public Optional<PermissionAuth> getPermissionById(int id) {
         return permissionRepository.findById(id);
+    }
+
+    @Override
+    public Optional<PermissionAuth> getPermissionByCode(String code) {
+        return permissionRepository.getByCode(code);
     }
 }

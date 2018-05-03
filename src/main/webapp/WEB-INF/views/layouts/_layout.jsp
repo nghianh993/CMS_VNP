@@ -76,6 +76,11 @@
 		<script src="<c:url value="/static/custom/lib/sweetalert.min.js"/>"></script>
 		<script src="<c:url value="/static/custom/lib/loadingoverlay.js"/>"></script>
 		<script src="<c:url value="/static/custom/js/common.js"/>"></script>
+		<script src="<c:url value="/static/js/jquery.bootstrap-duallistbox.min.js"/>"></script>
+		<script src="<c:url value="/static/js/jquery.raty.min.js"/>"></script>
+		<script src="<c:url value="/static/js/bootstrap-multiselect.min.js"/>"></script>
+		<script src="<c:url value="/static/js/select2.min.js"/>"></script>
+		<script src="<c:url value="/static/js/jquery-typeahead.js"/>"></script>
 	</head>
 
 	<body class="no-skin">

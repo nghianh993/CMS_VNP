@@ -67,8 +67,8 @@
                     </a>
                     <b class="arrow"></b>
                 </li>
-				<li <c:if test="${active == 'permission'}">class="active"</c:if>>
-					<a href="/admin/permission_group">
+				<li <c:if test="${active == 'group_permission'}">class="active"</c:if>>
+					<a href="/admin/group_permission">
 						<i class="menu-icon fa fa-caret-right"></i>
 						Quản lý nhóm quyền
 					</a>

@@ -71,6 +71,9 @@ public class PermissionController {
             @RequestParam(value = "description") String description,
             @RequestParam(value = "lock") boolean lock
     ) {
+        if (code == null || description == null || code.equals("") || description.equals("")) {
+            return false;
+        }
         return permissionService.savePermission(id, code, description, lock);
     }
 

@@ -1,9 +1,6 @@
 package vn.fis.cms.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +10,8 @@ public class Groups {
     private String permission;
 
     @Id
+    @SequenceGenerator(name="Groups_SEQ", sequenceName="Groups_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="Groups_SEQ")
     @Column(name = "ID")
     public int getId() {
         return id;

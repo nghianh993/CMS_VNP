@@ -45,4 +45,10 @@
 
     <definition name="pagging_permission" template="/WEB-INF/views/pages/pagging_permission.jsp" />
 
+    <!-- Group Permission -->
+    <definition name="group_permission" extends="admin">
+        <put-attribute name="title" value="Quản lý nhóm quyền" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/group_permission.jsp" />
+    </definition>
+
 </tiles-definitions>

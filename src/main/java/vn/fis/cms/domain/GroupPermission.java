@@ -11,6 +11,8 @@ public class GroupPermission {
     private Integer parentid;
 
     @Id
+    @SequenceGenerator(name="GROUP_PERMISSION_SEQ", sequenceName="GROUP_PERMISSION_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO, generator="GROUP_PERMISSION_SEQ")
     @Column(name = "ID")
     public int getId() {
         return id;

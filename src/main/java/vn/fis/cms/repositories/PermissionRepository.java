@@ -8,9 +8,16 @@ import org.springframework.stereotype.Repository;
 import vn.fis.cms.domain.PermissionAuth;
 import vn.fis.cms.model.PermissionModel;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface PermissionRepository extends JpaRepository<PermissionAuth, Integer> {
 
     @Query("SELECT NEW vn.fis.cms.model.PermissionModel(u.id, u.code, u.description, u.islock) from PermissionAuth u")
     Page<PermissionModel> findAllPermission(Pageable pageable);
+
+    List<PermissionAuth> findAll();
+
+    Optional<PermissionAuth> getByCode(String code);
 }
