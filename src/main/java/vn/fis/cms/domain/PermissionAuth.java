@@ -8,7 +8,7 @@ import java.util.Objects;
 public class PermissionAuth {
 
     @Id
-    @SequenceGenerator(name="PERMISSION_AUTH_SEQ", sequenceName="PERMISSION_AUTH_SEQ")
+    @SequenceGenerator(name="PERMISSION_AUTH_SEQ", sequenceName="PERMISSION_AUTH_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.AUTO, generator="PERMISSION_AUTH_SEQ")
     private int id;
     private String code;
