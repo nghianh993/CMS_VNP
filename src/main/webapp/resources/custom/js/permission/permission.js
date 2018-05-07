@@ -86,6 +86,8 @@ $(document).ready(function() {
         var id = $(this).attr("data-id");
 
         $('.btn-remove-success').attr("data-id", id);
+
+        $('#remove-modal').modal('show');
     });
 
     $('.btn-remove-success').on('click' , function(){
